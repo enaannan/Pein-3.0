@@ -11,7 +11,7 @@ public class Student {
         this.grades = grades; //<-- won't this change?
     }
     // getAverageGrade will calculate the average grade for a student
-    double getAverageGrade(){
+   public double getAverageGrade(){
         double sum=0;
         double avg=0;
         for (int i =0;i<grades.size();i++){
