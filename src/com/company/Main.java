@@ -10,8 +10,8 @@ class Main {
         grades.add(15.0);
         grades.add(20.0);
         grades.add(100.0);
-
-        Student student = new Student(grades);
+        String name = "Joe Hills";
+        Student student = new Student(name,Level.HUNDRED,grades);
 
         System.out.println(student.getAverageGrade());
     }

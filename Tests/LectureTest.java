@@ -1,4 +1,5 @@
 import com.company.Lecture;
+import com.company.Level;
 import com.company.Student;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +17,8 @@ public class LectureTest {
         grades1.add(23.0);
         grades1.add(100.0);
 
-        Student student1 = new Student(grades1);
+        String name1 = "Pimp Crean";
+        Student student1 = new Student(name1,Level.HUNDRED,grades1);
 
         List<Double> grades2= new ArrayList<Double>();
         grades2.add(100.0);
@@ -24,8 +26,8 @@ public class LectureTest {
         grades2.add(100.0);
         grades2.add(100.0);
         grades2.add(100.0);
-
-        Student student2 = new Student(grades2);
+        String name2 = "Nuna Bills";
+        Student student2 = new Student(name2,Level.THREE_HUNDRED,grades2);
 
         List<Double> grades3= new ArrayList<Double>();
         grades3.add(10.0);
@@ -33,8 +35,8 @@ public class LectureTest {
         grades3.add(15.0);
         grades3.add(20.0);
         grades3.add(100.0);
-
-        Student student3 = new Student(grades3);
+         String name3 = "Muna Dunks";
+        Student student3 = new Student(name3,Level.TWO_HUNDRED,grades3);
 
        //calling the enter method in the Lecture class
         Lecture lecture = new Lecture();
