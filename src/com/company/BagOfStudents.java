@@ -1,5 +1,10 @@
 package com.company;
 
-public class BagOfStudents {
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class BagOfStudents extends Bag {
 
 }

@@ -14,6 +14,15 @@ class Main {
         Student student = new Student(grades);
 
         System.out.println(student.getAverageGrade());
+
+
+        BagOfStudents bagOfStudents = new BagOfStudents();
+        bagOfStudents.addToBag(student);
+        bagOfStudents.showElementsInBag();
+
+
+
+
     }
 }
 
