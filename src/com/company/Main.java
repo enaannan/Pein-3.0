@@ -22,6 +22,15 @@ class Main {
         System.out.println("*************************************");
 
         System.out.println(student.getAverageGrade());
+
+
+        BagOfStudents bagOfStudents = new BagOfStudents();
+        bagOfStudents.addToBag(student);
+        bagOfStudents.showElementsInBag();
+
+
+
+
     }
 }
 
