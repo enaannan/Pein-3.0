@@ -1,3 +1,4 @@
+import com.company.Level;
 import com.company.Student;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,6 +17,9 @@ public class StudentClassTest {
         grades.add(15.0);
         grades.add(20.0);
         grades.add(100.0);
+
+        String name ="Pimp Kinto";
+        Student student = new Student(name,Level.FOUR_HUNDRED,grades);
 
         // add student id in order to pass test
         int studentID = 1;

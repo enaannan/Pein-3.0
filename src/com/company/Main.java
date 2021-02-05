@@ -11,6 +11,9 @@ class Main {
         grades.add(20.0);
         grades.add(100.0);
 
+        String name = "Joe Hills";
+        Student student = new Student(name,Level.HUNDRED,grades);
+
         // need to add student ID
         int studentID = 1;
 
