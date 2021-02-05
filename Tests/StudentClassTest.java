@@ -18,12 +18,12 @@ public class StudentClassTest {
         grades.add(20.0);
         grades.add(100.0);
 
-        String name ="Pimp Kinto";
-        Student student = new Student(name,Level.FOUR_HUNDRED,grades);
 
-        // add student id in order to pass test
-        int studentID = 1;
-        Student student = new Student(studentID, grades);
+        Student student = new Student(1,"Pimp Kinto",Level.FOUR_HUNDRED,grades);
+
+
+
+
 
         Assert.assertEquals(student.getAverageGrade(),39.0,0.001);
     }

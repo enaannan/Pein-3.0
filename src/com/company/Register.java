@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Register {
-    private List<Nameable> listOfNameables = new ArrayList<Nameable>();
+    private List<Nameable> listOfNameables ;
     private List<String> nameOfStudents = new ArrayList<String>();
     private List<Student> students = new ArrayList<Student>();
     private List<String> studentsAtThisLevel = new ArrayList<String>();
@@ -23,7 +23,7 @@ public class Register {
 //    method to return lists of name of all students
     public List<String> getRegister(){
         for (Student s: students) {
-            nameOfStudents.add(s.studetnName);
+            nameOfStudents.add(s.studentName);
         }
         return nameOfStudents;
     }
@@ -32,7 +32,7 @@ public class Register {
     public List<String> getRegisterByLevel(Level level){
         for (Student s: students) {
             if(s.level==level){
-                studentsAtThisLevel.add(s.studetnName);
+                studentsAtThisLevel.add(s.studentName);
             }
         }
         return studentsAtThisLevel;
@@ -42,7 +42,7 @@ public class Register {
     private List<String> level100Students(){
         for (Student s: students) {
             if(s.level==Level.HUNDRED){
-                levelHundredStudents.add(s.studetnName);
+                levelHundredStudents.add(s.studentName);
             }
         }
         return levelHundredStudents;
@@ -53,7 +53,7 @@ public class Register {
     private List<String> level200Students(){
         for (Student s: students) {
             if(s.level==Level.TWO_HUNDRED){
-                levelTwoHundredStudents.add(s.studetnName);
+                levelTwoHundredStudents.add(s.studentName);
             }
         }
         return levelTwoHundredStudents;
@@ -63,7 +63,7 @@ public class Register {
 private List<String> level300Students(){
     for (Student s: students) {
         if(s.level==Level.THREE_HUNDRED){
-            levelThreeHundredStudents.add(s.studetnName);
+            levelThreeHundredStudents.add(s.studentName);
         }
     }
     return levelThreeHundredStudents;
@@ -73,7 +73,7 @@ private List<String> level300Students(){
 private List<String> level400Students(){
     for (Student s: students) {
         if(s.level==Level.FOUR_HUNDRED){
-            levelFourHundredStudents.add(s.studetnName);
+            levelFourHundredStudents.add(s.studentName);
         }
     }
     return levelFourHundredStudents;
