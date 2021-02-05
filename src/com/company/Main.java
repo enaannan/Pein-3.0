@@ -11,7 +11,15 @@ class Main {
         grades.add(20.0);
         grades.add(100.0);
 
-        Student student = new Student(grades);
+        // need to add student ID
+        int studentID = 1;
+
+        Student student = new Student(studentID, grades);
+
+        NaughtyStudent naughtyStudent = new NaughtyStudent(studentID, grades);
+        System.out.println("A naughty student has an average grade of: "+ naughtyStudent.getAverageGrade());
+
+        System.out.println("*************************************");
 
         System.out.println(student.getAverageGrade());
     }

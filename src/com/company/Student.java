@@ -4,10 +4,12 @@ import java.util.*;
 
 public class Student {
     private  List<Double> grades= new ArrayList<Double>();
+    private  int ID; // student ID
     private   double averageGrade;
 
     // constructor
-    public Student(List <Double> grades) {
+    public Student(int ID, List <Double> grades) {
+        this.ID = ID;
         this.grades = grades;
     }
     // getAverageGrade will calculate the average grade for a student

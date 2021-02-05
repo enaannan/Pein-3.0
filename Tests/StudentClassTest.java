@@ -17,7 +17,9 @@ public class StudentClassTest {
         grades.add(20.0);
         grades.add(100.0);
 
-        Student student = new Student(grades);
+        // add student id in order to pass test
+        int studentID = 1;
+        Student student = new Student(studentID, grades);
 
         Assert.assertEquals(student.getAverageGrade(),39.0,0.001);
     }
