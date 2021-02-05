@@ -3,12 +3,12 @@ package com.company;
 import java.util.*;
 
 public class Student {
-    private  List<Double> grades= new ArrayList<Double>(); //<- to this?
+    private  List<Double> grades= new ArrayList<Double>();
     private   double averageGrade;
 
     // constructor
-    public Student(List <Double> grades) { // this is wrong// please wait
-        this.grades = grades; //<-- won't this change?
+    public Student(List <Double> grades) {
+        this.grades = grades;
     }
     // getAverageGrade will calculate the average grade for a student
    public double getAverageGrade(){
