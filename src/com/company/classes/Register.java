@@ -42,7 +42,7 @@ public class Register {
     }
 
 //    method to get name of all level hundred students
-    private List<String> level100Students(){
+    private List<String> getLevel100Students(){
         for (Student s: students) {
             if(s.level==Level.HUNDRED){
                 levelHundredStudents.add(s.studentName);
@@ -53,7 +53,7 @@ public class Register {
 
 //    method to return list of students in level 200
 
-    private List<String> level200Students(){
+    private List<String> getLevel200Students(){
         for (Student s: students) {
             if(s.level==Level.TWO_HUNDRED){
                 levelTwoHundredStudents.add(s.studentName);
@@ -63,7 +63,7 @@ public class Register {
     }
 
 // method to return list of all level 300 students
-private List<String> level300Students(){
+private List<String> getLevel300Students(){
     for (Student s: students) {
         if(s.level==Level.THREE_HUNDRED){
             levelThreeHundredStudents.add(s.studentName);
@@ -73,7 +73,7 @@ private List<String> level300Students(){
 }
 
 //method to return all level 400 hundred students
-private List<String> level400Students(){
+private List<String> getLevel400Students(){
     for (Student s: students) {
         if(s.level==Level.FOUR_HUNDRED){
             levelFourHundredStudents.add(s.studentName);
@@ -84,10 +84,10 @@ private List<String> level400Students(){
 
 //    method to return names of students in each level
     public Map printReport(){
-        studentsInLevels.put("level 100",level100Students());
-        studentsInLevels.put("level 200",level200Students());
-        studentsInLevels.put("level 300",level300Students());
-        studentsInLevels.put("level 400",level400Students());
+        studentsInLevels.put("level 100",getLevel100Students());
+        studentsInLevels.put("level 200",getLevel200Students());
+        studentsInLevels.put("level 300",getLevel300Students());
+        studentsInLevels.put("level 400",getLevel400Students());
         return studentsInLevels;
     }
 
