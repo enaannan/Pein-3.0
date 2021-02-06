@@ -46,7 +46,33 @@ Student stu = optional.get();
 
 
 
+@Test
+    public void studentSearchByNameResultListTest(){
 
+
+    grades.add(10.0);
+    grades.add(50.0);
+    grades.add(15.0);
+    grades.add(20.0);
+    grades.add(100.0);
+
+    Student student1 = new Student(1,"Ken Kinto",Level.FOUR_HUNDRED,grades);
+    Student student2 = new Student(1,"James",Level.FOUR_HUNDRED,grades);
+
+    studentTestList.add(student1);
+    studentTestList.add(student2);
+
+    Register register = new Register(studentTestList);
+List<String> namesToBeSearched = new ArrayList<String>();
+    List<Student> studentsFound ;// contains a list of Students found
+
+    namesToBeSearched.add("James");
+
+studentsFound =  register.getStudentsByName(namesToBeSearched);
+
+Assert.assertEquals(student2,studentsFound.get(0));
+
+}
 
 
 }

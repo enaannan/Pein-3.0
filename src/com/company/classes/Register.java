@@ -9,7 +9,7 @@ import java.util.*;
 public class Register {
 
     private List<String> nameOfStudents = new ArrayList<String>();
-    private List<Student> students ; // this contains a list of students with name
+    private List<Student> students ; // this contains a list of students
     private List<String> studentsAtThisLevel = new ArrayList<String>();
     private List<String> levelHundredStudents = new ArrayList<String>();
     private List<String> levelTwoHundredStudents = new ArrayList<String>();
@@ -22,6 +22,26 @@ public class Register {
     }
 
     private Optional<Student> studentSearchByNameResult; // Contains the result of a search by student name
+    private List<Student> studentSearchByNameResultList=new ArrayList<Student>(); // contains a list of students found by search with a list of names
+
+    //function to get a student by name. It takes a list on names
+    public  List<Student> getStudentsByName (List<String> listOfNames){
+        if(!students.isEmpty()){
+          for(String name: listOfNames){
+
+              for(Student s:students){
+                  if (name.equals(s.getName())){
+                      // name match found
+                      studentSearchByNameResultList.add(s);
+                  }
+              }
+          }
+        }
+
+
+        return studentSearchByNameResultList ;
+    }
+
 
     // function to get a student by name. Returns the first occurrence of the name
     public Optional<Student> getStudentByName(String name){
