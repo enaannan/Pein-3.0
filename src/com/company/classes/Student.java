@@ -1,4 +1,7 @@
-package com.company;
+package com.company.classes;
+
+import com.company.interfaces.HasLevel;
+import com.company.enums.Level;
 
 import java.util.*;
 

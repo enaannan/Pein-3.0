@@ -1,4 +1,7 @@
-package com.company;
+package com.company.classes;
+
+import com.company.enums.Level;
+import com.company.interfaces.Nameable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
