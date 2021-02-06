@@ -3,15 +3,13 @@ package com.company.classes;
 import com.company.enums.Level;
 import com.company.interfaces.Nameable;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.swing.text.html.Option;
+import java.util.*;
 
 public class Register {
-    private List<Nameable> listOfNameables ;
+
     private List<String> nameOfStudents = new ArrayList<String>();
-    private List<Student> students = new ArrayList<Student>();
+    private List<Student> students ; // this contains a list of students with name
     private List<String> studentsAtThisLevel = new ArrayList<String>();
     private List<String> levelHundredStudents = new ArrayList<String>();
     private List<String> levelTwoHundredStudents = new ArrayList<String>();
@@ -19,14 +17,43 @@ public class Register {
     private List<String> levelFourHundredStudents = new ArrayList<String>();
     private Map studentsInLevels= new HashMap<String,List<String>>();
 
-    public Register(List<Nameable> listOfNameables) {
-        this.listOfNameables = listOfNameables;
+    public Register(List<Student> students) {
+        this.students = students;
     }
+
+    private Optional<Student> studentSearchByNameResult; // Contains the result of a search by student name
+
+    // function to get a student by name. Returns the first occurrence of the name
+    public Optional<Student> getStudentByName(String name){
+        // check if student list is not empty
+        if(!students.isEmpty()){
+
+
+            for(Student s: students){
+
+
+                if (name.equals(s.getName()) ) {
+                    studentSearchByNameResult = Optional.of(s);
+                    return studentSearchByNameResult;
+
+                }
+
+
+
+
+
+            }
+
+        }
+
+        return studentSearchByNameResult = Optional.empty();
+    }
+
 
 //    method to return lists of name of all students
     public List<String> getRegister(){
         for (Student s: students) {
-            nameOfStudents.add(s.studentName);
+            nameOfStudents.add(s.getName());
         }
         return nameOfStudents;
     }
@@ -34,8 +61,8 @@ public class Register {
 //    method to return list of students studying at a level
     public List<String> getRegisterByLevel(Level level){
         for (Student s: students) {
-            if(s.level==level){
-                studentsAtThisLevel.add(s.studentName);
+            if(s.getLevel() == level){
+                studentsAtThisLevel.add(s.getName());
             }
         }
         return studentsAtThisLevel;
@@ -44,8 +71,8 @@ public class Register {
 //    method to get name of all level hundred students
     private List<String> getLevel100Students(){
         for (Student s: students) {
-            if(s.level==Level.HUNDRED){
-                levelHundredStudents.add(s.studentName);
+            if(s.getLevel()==Level.HUNDRED){
+                levelHundredStudents.add(s.getName());
             }
         }
         return levelHundredStudents;
@@ -55,8 +82,8 @@ public class Register {
 
     private List<String> getLevel200Students(){
         for (Student s: students) {
-            if(s.level==Level.TWO_HUNDRED){
-                levelTwoHundredStudents.add(s.studentName);
+            if(s.getLevel()==Level.TWO_HUNDRED){
+                levelTwoHundredStudents.add(s.getName());
             }
         }
         return levelTwoHundredStudents;
@@ -65,8 +92,8 @@ public class Register {
 // method to return list of all level 300 students
 private List<String> getLevel300Students(){
     for (Student s: students) {
-        if(s.level==Level.THREE_HUNDRED){
-            levelThreeHundredStudents.add(s.studentName);
+        if(s.getLevel()==Level.THREE_HUNDRED){
+            levelThreeHundredStudents.add(s.getName());
         }
     }
     return levelThreeHundredStudents;
@@ -75,8 +102,8 @@ private List<String> getLevel300Students(){
 //method to return all level 400 hundred students
 private List<String> getLevel400Students(){
     for (Student s: students) {
-        if(s.level==Level.FOUR_HUNDRED){
-            levelFourHundredStudents.add(s.studentName);
+        if(s.getLevel()==Level.FOUR_HUNDRED){
+            levelFourHundredStudents.add(s.getName());
         }
     }
     return levelFourHundredStudents;
