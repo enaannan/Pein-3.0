@@ -18,8 +18,8 @@ public class Lecture {
     }
     private  void  addAverageGrades(){
         if(!studentsEntered.isEmpty()){
-            for(int i=0; i< studentsEntered.size();i++){
-                listOfAverageGrades.add(studentsEntered.get(i).getAverageGrade());
+            for (Student s: studentsEntered) {
+                listOfAverageGrades.add(s.getAverageGrade());
             }
         }
     }

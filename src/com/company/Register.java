@@ -16,8 +16,9 @@ public class Register {
     private List<String> levelFourHundredStudents = new ArrayList<String>();
     private Map studentsInLevels= new HashMap<String,List<String>>();
 
-    public Register(List<Nameable> listOfNameables) {
+    public Register(List<Nameable> listOfNameables,List<Student> students) {
         this.listOfNameables = listOfNameables;
+        this.students = students;
     }
 
 //    method to return lists of name of all students
@@ -29,13 +30,15 @@ public class Register {
     }
 
 //    method to return list of students studying at a level
-    public List<String> getRegisterByLevel(Level level){
+    public Map<Level,List<Student>> getRegisterByLevel(Level level){
+        Map studentInThisLevel = new HashMap<Level,List<Student>>();
         for (Student s: students) {
             if(s.level==level){
                 studentsAtThisLevel.add(s.studetnName);
+                studentInThisLevel.put(level,studentsAtThisLevel);
             }
         }
-        return studentsAtThisLevel;
+        return studentInThisLevel;
     }
 
 //    method to get name of all level hundred students
@@ -87,5 +90,7 @@ private List<String> level400Students(){
         studentsInLevels.put("level 400",level400Students());
         return studentsInLevels;
     }
+
+
 
 }
