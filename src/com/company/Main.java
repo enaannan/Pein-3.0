@@ -1,4 +1,9 @@
 package com.company;
+import com.company.classes.BagOfStudents;
+import com.company.classes.NaughtyStudent;
+import com.company.classes.Student;
+import com.company.enums.Level;
+
 import java.util.*;
 
 class Main {
@@ -14,7 +19,7 @@ class Main {
         grades.add(100.0);
 
         //String name = "Joe Hills";
-        Student student1 = new Student(1,"Joe Hills",Level.HUNDRED,grades);
+        Student student1 = new Student(1,"Joe Hills", Level.HUNDRED,grades);
 
 
 

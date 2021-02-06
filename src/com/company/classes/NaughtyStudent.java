@@ -1,11 +1,13 @@
-package com.company;
+package com.company.classes;
+
+import com.company.enums.Level;
 
 import java.util.List;
 
 public class NaughtyStudent extends Student {
 
     // create naughty student constructor
-    public NaughtyStudent (int ID,String name,Level level, List<Double> grades) {
+    public NaughtyStudent (int ID, String name, Level level, List<Double> grades) {
         super(ID, name,level,grades);
     }
 

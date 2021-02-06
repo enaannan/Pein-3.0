@@ -1,5 +1,5 @@
-import com.company.Level;
-import com.company.Student;
+import com.company.enums.Level;
+import com.company.classes.Student;
 import org.junit.Assert;
 import org.junit.Test;
 

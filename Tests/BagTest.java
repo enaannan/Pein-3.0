@@ -1,7 +1,6 @@
-import com.company.Bag;
-import com.company.Level;
-import com.company.Student;
-import org.junit.Assert;
+import com.company.classes.Bag;
+import com.company.enums.Level;
+import com.company.classes.Student;
 import org.junit.Test;
 
 import java.util.ArrayList;
