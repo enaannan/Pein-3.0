@@ -2,15 +2,16 @@ package com.company.classes;
 
 import com.company.interfaces.HasLevel;
 import com.company.enums.Level;
+import com.company.interfaces.Nameable;
 
 import java.util.*;
 
-public class Student implements HasLevel {
+public class Student implements HasLevel, Nameable {
     private List<Double> grades;
     private int ID; // student ID
     private double averageGrade;
-    public Level level;
-    public String studentName;
+    private Level level;
+    private String studentName;
 
 
 
@@ -25,7 +26,7 @@ public class Student implements HasLevel {
     }
 
     @Override
-    public Level getLevel () {
+    public Level getLevel() {
         return level;
     }
 
@@ -38,5 +39,10 @@ public class Student implements HasLevel {
             avg = sum/grades.size();
         }
     return avg;
+    }
+
+    @Override
+    public String getName() {
+        return studentName ;
     }
 }
