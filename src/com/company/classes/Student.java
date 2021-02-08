@@ -3,7 +3,6 @@ package com.company.classes;
 import com.company.interfaces.HasLevel;
 import com.company.enums.Level;
 import com.company.interfaces.Nameable;
-
 import java.util.*;
 
 public class Student implements HasLevel, Nameable {
@@ -13,11 +12,7 @@ public class Student implements HasLevel, Nameable {
     private Level level;
     private String studentName;
 
-
-
     // constructor
-
-
     public Student( int ID,String studentName,Level level, List <Double > grades){
         this.ID = ID;
         this.grades = grades;
@@ -34,7 +29,6 @@ public class Student implements HasLevel, Nameable {
         double sum=0;
         double avg=0;
         for (int i =0;i<grades.size();i++){
-
             sum += grades.get(i);
             avg = sum/grades.size();
         }

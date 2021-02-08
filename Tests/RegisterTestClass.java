@@ -3,27 +3,17 @@ import com.company.classes.Student;
 import com.company.enums.Level;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class RegisterTestClass {
     List<Student> studentTestList = new ArrayList<Student>();
-
     List<Double> grades= new ArrayList<Double>();
-
-
-
-
-
-
-
-
 
     @Test
     public void getStudentByNameTest(){
-//add grades for this test method
+        //add grades for this test method
         grades.add(10.0);
         grades.add(50.0);
         grades.add(15.0);
@@ -38,17 +28,13 @@ public class RegisterTestClass {
 
         Register register = new Register(studentTestList);
 
-
        Optional<Student> optional = register.getStudentByName("James");
-Student stu = optional.get();
-         Assert.assertEquals("James",stu.getName());
+       Student stu = optional.get();
+       Assert.assertEquals("James",stu.getName());
     }
 
-
-
-@Test
+    @Test
     public void studentSearchByNameResultListTest(){
-
 
     grades.add(10.0);
     grades.add(50.0);
@@ -63,16 +49,15 @@ Student stu = optional.get();
     studentTestList.add(student2);
 
     Register register = new Register(studentTestList);
-List<String> namesToBeSearched = new ArrayList<String>();
+
+    List<String> namesToBeSearched = new ArrayList<String>();
     List<Student> studentsFound ;// contains a list of Students found
 
     namesToBeSearched.add("James");
 
-studentsFound =  register.getStudentsByName(namesToBeSearched);
+    studentsFound =  register.getStudentsByName(namesToBeSearched);
 
-Assert.assertEquals(student2,studentsFound.get(0));
+    Assert.assertEquals(student2,studentsFound.get(0));
 
-}
-
-
+    }
 }

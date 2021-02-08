@@ -1,7 +1,5 @@
 package com.company.classes;
-
 import com.company.enums.Level;
-
 import java.util.List;
 
 public class NaughtyStudent extends Student {
@@ -10,9 +8,6 @@ public class NaughtyStudent extends Student {
     public NaughtyStudent (int ID, String name, Level level, List<Double> grades) {
         super(ID, name,level,grades);
     }
-
-
-
 
     // NaughtyStudent increase grade by 0.10
     // overridden method will multiply average grade by 10% and add result to average grade

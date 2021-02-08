@@ -1,1 +1,8 @@
+# contains local settings
 *.idea
+
+#contains compiled files
+/out
+
+#contains iml settings
+*iml

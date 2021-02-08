@@ -1,5 +1,3 @@
 package com.company.interfaces;
 
-public interface Nameable {
-    public String getName();
-}
+public interface Nameable { public String getName();}

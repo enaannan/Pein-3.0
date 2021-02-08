@@ -3,7 +3,6 @@ import com.company.enums.Level;
 import com.company.classes.Student;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,26 +30,15 @@ public class LectureTest {
         grades3.add(20.0);
         grades3.add(100.0);
 
-
-
-
         Student student1 = new Student(1,"Pimp Cream",Level.HUNDRED,grades1);
-
-
-
         Student student2 = new Student(2,"Nuna Bills",Level.THREE_HUNDRED,grades2);
-
-
-
         Student student3 = new Student(3,"Muna Dunks",Level.TWO_HUNDRED,grades3);
-
 
        //calling the enter method in the Lecture class
         Lecture lecture = new Lecture();
-       lecture.enter(student1);
-       lecture.enter(student2);
-       lecture.enter(student3);
-
+        lecture.enter(student1);
+        lecture.enter(student2);
+        lecture.enter(student3);
 
         Assert.assertEquals(lecture.getHighestAverageGrade(),100,0.001);
     }
