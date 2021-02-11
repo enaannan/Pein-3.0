@@ -27,15 +27,15 @@ public class Register {
     //function to get a student by name. It takes a list on names
     public  List<Student> getStudentsByName (List<String> listOfNames){
         if(!students.isEmpty()){
-          for(String name: listOfNames){
+            for(String name: listOfNames){
 
-              for(Student s:students){
-                  if (name.equals(s.getName())){
-                      // name match found
-                      studentSearchByNameResultList.add(s);
-                  }
-              }
-          }
+                for(Student s:students){
+                    if (name.equals(s.getName())){
+                        // name match found
+                        studentSearchByNameResultList.add(s);
+                    }
+                }
+            }
         }
 
 
@@ -47,25 +47,26 @@ public class Register {
     public Optional<Student> getStudentByName(String name) throws StudentNotFoundException{
         // check if student list is not empty
         try{
-            if(!students.isEmpty()){
-                for(Student s: students){
-                    if (name.equals(s.getName()) ) {
-                        studentSearchByNameResult = Optional.of(s);
-                        throw new StudentNotFoundException(s.getName() + " not found");
+            if(!students.isEmpty()){// check for not empty
+                for(Student s: students){ // loop through student list object
+                    if (name.equals(s.getName()) ) { // for each student, check for equal name
+                        studentSearchByNameResult = Optional.of(s); //
+                        return studentSearchByNameResult;
                     }
                 }
+                throw new StudentNotFoundException(name +" not found");
             }
-            return studentSearchByNameResult;
+
         } catch (StudentNotFoundException studentNotFoundException){
             System.err.println(studentNotFoundException.getMessage());
         }
 
-        // return studentSearchByNameResult = Optional.empty();
-        return studentSearchByNameResult;
+        return studentSearchByNameResult = Optional.empty();
+        //return studentSearchByNameResult;
     }
 
 
-//    method to return lists of name of all students
+    //    method to return lists of name of all students
     public List<String> getRegister(){
         for (Student s: students) {
             nameOfStudents.add(s.getName());
@@ -73,7 +74,7 @@ public class Register {
         return nameOfStudents;
     }
 
-//    method to return list of students studying at a level
+    //    method to return list of students studying at a level
     public List<String> getRegisterByLevel(Level level){
         for (Student s: students) {
             if(s.getLevel() == level){
@@ -83,7 +84,7 @@ public class Register {
         return studentsAtThisLevel;
     }
 
-//    method to get name of all level hundred students
+    //    method to get name of all level hundred students
     private List<String> getLevel100Students(){
         for (Student s: students) {
             if(s.getLevel()==Level.HUNDRED){
@@ -104,27 +105,27 @@ public class Register {
         return levelTwoHundredStudents;
     }
 
-// method to return list of all level 300 students
-private List<String> getLevel300Students(){
-    for (Student s: students) {
-        if(s.getLevel()==Level.THREE_HUNDRED){
-            levelThreeHundredStudents.add(s.getName());
+    // method to return list of all level 300 students
+    private List<String> getLevel300Students(){
+        for (Student s: students) {
+            if(s.getLevel()==Level.THREE_HUNDRED){
+                levelThreeHundredStudents.add(s.getName());
+            }
         }
+        return levelThreeHundredStudents;
     }
-    return levelThreeHundredStudents;
-}
 
-//method to return all level 400 hundred students
-private List<String> getLevel400Students(){
-    for (Student s: students) {
-        if(s.getLevel()==Level.FOUR_HUNDRED){
-            levelFourHundredStudents.add(s.getName());
+    //method to return all level 400 hundred students
+    private List<String> getLevel400Students(){
+        for (Student s: students) {
+            if(s.getLevel()==Level.FOUR_HUNDRED){
+                levelFourHundredStudents.add(s.getName());
+            }
         }
+        return levelFourHundredStudents;
     }
-    return levelFourHundredStudents;
-}
 
-//    method to return names of students in each level
+    //    method to return names of students in each level
     public Map printReport(){
         studentsInLevels.put("level 100",getLevel100Students());
         studentsInLevels.put("level 200",getLevel200Students());
