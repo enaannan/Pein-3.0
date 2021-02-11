@@ -1,5 +1,6 @@
 import com.company.classes.Register;
 import com.company.classes.Student;
+import com.company.classes.StudentNotFoundException;
 import com.company.enums.Level;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +23,7 @@ public class RegisterTestClass {
 
 
     @Test
-    public void getStudentByNameTest(){
+    public void getStudentByNameTest() throws StudentNotFoundException {
 //add grades for this test method
         grades.add(10.0);
         grades.add(50.0);
@@ -40,8 +41,10 @@ public class RegisterTestClass {
 
 
        Optional<Student> optional = register.getStudentByName("James");
-Student stu = optional.get();
-         Assert.assertEquals("James",stu.getName());
+       Student stu = optional.get();
+       System.out.println("Expecting student name but...:" + stu.getName());
+       Assert.assertEquals("James",stu.getName());
+       throw new StudentNotFoundException(stu.toString());
     }
 
 

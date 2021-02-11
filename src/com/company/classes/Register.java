@@ -44,29 +44,24 @@ public class Register {
 
 
     // function to get a student by name. Returns the first occurrence of the name
-    public Optional<Student> getStudentByName(String name){
+    public Optional<Student> getStudentByName(String name) throws StudentNotFoundException{
         // check if student list is not empty
-        if(!students.isEmpty()){
-
-
-            for(Student s: students){
-
-
-                if (name.equals(s.getName()) ) {
-                    studentSearchByNameResult = Optional.of(s);
-                    return studentSearchByNameResult;
-
+        try{
+            if(!students.isEmpty()){
+                for(Student s: students){
+                    if (name.equals(s.getName()) ) {
+                        studentSearchByNameResult = Optional.of(s);
+                        throw new StudentNotFoundException(s.getName() + " not found");
+                    }
                 }
-
-
-
-
-
             }
-
+            return studentSearchByNameResult;
+        } catch (StudentNotFoundException studentNotFoundException){
+            System.err.println(studentNotFoundException.getMessage());
         }
 
-        return studentSearchByNameResult = Optional.empty();
+        // return studentSearchByNameResult = Optional.empty();
+        return studentSearchByNameResult;
     }
 
 
