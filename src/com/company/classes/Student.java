@@ -5,6 +5,7 @@ import com.company.enums.Level;
 import com.company.interfaces.Nameable;
 
 import java.util.*;
+import java.util.stream.DoubleStream;
 
 public class Student implements HasLevel, Nameable {
     private List<Double> grades;
@@ -44,5 +45,18 @@ public class Student implements HasLevel, Nameable {
     @Override
     public String getName() {
         return studentName ;
+    }
+
+//    method to return student grades as doubles
+    public List<DoubleStream>  doubleStreamGrades(){
+        List<DoubleStream> f =new ArrayList<>();
+        for (Double grade : grades) {
+            f.add(DoubleStream.of(grade));
+        }
+        return f;
+    }
+//    method to return student grades
+    public List<Double> studentGrades(){
+        return grades;
     }
 }

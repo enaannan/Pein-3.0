@@ -1,7 +1,5 @@
 package com.company;
-import com.company.classes.BagOfStudents;
-import com.company.classes.NaughtyStudent;
-import com.company.classes.Student;
+import com.company.classes.*;
 import com.company.enums.Level;
 
 import java.util.*;
@@ -50,8 +48,27 @@ class Main {
         bagOfStudents.addToBag(student1);
         bagOfStudents.showElementsInBag();
 
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        List<Student> st = new ArrayList<Student>();
+        st.add(student1);
+        st.add(student2);
 
+        Register register = new Register(st);
+        System.out.println(register.getRegisterByLevel());
+        System.out.println("================================================================");
+        System.out.println(register.sort(new StudentNameComparator()));
+        System.out.println("/////////////////////////////////////////////////");
+        System.out.println(register.sort(new StudentLevelComparator()));
 
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        System.out.println(register.averageOfStudentGrades());
+        System.out.println("---------------------------------------------------------------");
+
+        System.out.println(register.gradesOfStudentsScoringAbove60());
+        System.out.println("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]");
+        System.out.println(register.highestGrade());
+        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&77777");
+        System.out.println(student1.doubleStreamGrades());
 
     }
 }

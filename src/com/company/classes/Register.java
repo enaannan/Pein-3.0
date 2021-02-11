@@ -1,10 +1,10 @@
 package com.company.classes;
 
 import com.company.enums.Level;
-import com.company.interfaces.Nameable;
 
-import javax.swing.text.html.Option;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 
 public class Register {
 
@@ -16,9 +16,13 @@ public class Register {
     private List<String> levelThreeHundredStudents = new ArrayList<String>();
     private List<String> levelFourHundredStudents = new ArrayList<String>();
     private Map studentsInLevels= new HashMap<String,List<String>>();
+    private Map mappedStudents = new HashMap<Level,List<Student>>();
+    private List<String> sortedStudents = new ArrayList<>();
+    private List<Double> studentGrades = new ArrayList<Double>();
 
-    public Register(List<Student> students) {
-        this.students = students;
+    public Register(List<? super NaughtyStudent> students) {
+        this.students = (List<Student>) students;
+        getStudentGrades();
     }
 
     private Optional<Student> studentSearchByNameResult; // Contains the result of a search by student name
@@ -58,10 +62,6 @@ public class Register {
 
                 }
 
-
-
-
-
             }
 
         }
@@ -79,13 +79,25 @@ public class Register {
     }
 
 //    method to return list of students studying at a level
-    public List<String> getRegisterByLevel(Level level){
+    public Map<Level,List<Student>> getRegisterByLevel(){
         for (Student s: students) {
-            if(s.getLevel() == level){
-                studentsAtThisLevel.add(s.getName());
+            if(s.getLevel() == Level.HUNDRED){
+                mappedStudents.put(Level.HUNDRED,s.getName());
+            }
+            else if(s.getLevel() == Level.TWO_HUNDRED){
+                mappedStudents.put(Level.TWO_HUNDRED,s.getName());
+            }
+            else if(s.getLevel()==Level.THREE_HUNDRED){
+                mappedStudents.put(Level.THREE_HUNDRED,s.getName());
+            }
+            else if(s.getLevel()==Level.FOUR_HUNDRED){
+                mappedStudents.put(Level.FOUR_HUNDRED,s.getName());
+            }
+            else {
+                return (Map<Level, List<Student>>) mappedStudents.put(" "," ");
             }
         }
-        return studentsAtThisLevel;
+        return mappedStudents;
     }
 
 //    method to get name of all level hundred students
@@ -130,12 +142,55 @@ private List<String> getLevel400Students(){
 }
 
 //    method to return names of students in each level
-    public Map printReport(){
+    public Map<String,List<Student>> printReport(){
         studentsInLevels.put("level 100",getLevel100Students());
         studentsInLevels.put("level 200",getLevel200Students());
         studentsInLevels.put("level 300",getLevel300Students());
         studentsInLevels.put("level 400",getLevel400Students());
         return studentsInLevels;
+    }
+//    sort method to return list of students base on a comparator
+    public List<String> sort(Comparator<Student> s){
+        Collections.sort(students,s);
+        for(Student st: students){
+            sortedStudents.add(st.getName());
+        }
+        return sortedStudents;
+    }
+    
+    public List<Double> getStudentGrades(){
+        for(Student st:students){
+            for(Double sg:st.studentGrades()){
+                studentGrades.add(sg);
+            }
+        }
+        return studentGrades;
+    }
+
+//    method to get the highest grade of all students grades
+    public OptionalDouble highestGrade(){
+        return studentGrades
+                  .stream()
+                  .mapToDouble(r -> r)
+                  .max();
+    }
+
+//    method to get the average of all student grades
+    public double averageOfStudentGrades(){
+        int size  = studentGrades.size();
+       double sg = studentGrades
+        .stream()
+        .mapToDouble(r -> r)
+        .reduce(0,(sum,el)->(sum+el)/size);
+        return sg;
+    }
+
+//    method to return student scoring above 60%
+    public List<DoubleStream> gradesOfStudentsScoringAbove60(){
+        List<DoubleStream> streamGrades=new ArrayList<>();
+                students.stream()
+                        .forEach(r -> r.studentGrades());
+        return streamGrades;
     }
 
 }

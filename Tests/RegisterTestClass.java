@@ -1,5 +1,7 @@
 import com.company.classes.Register;
 import com.company.classes.Student;
+import com.company.classes.StudentLevelComparator;
+import com.company.classes.StudentNameComparator;
 import com.company.enums.Level;
 import org.junit.Assert;
 import org.junit.Test;
@@ -72,6 +74,27 @@ studentsFound =  register.getStudentsByName(namesToBeSearched);
 
 Assert.assertEquals(student2,studentsFound.get(0));
 
+}
+
+@Test
+    public void sortRegisterTest(){
+        List<String> expectedResultCompareByName = new ArrayList<String>();
+        List<String> expectedResultCompareByLevel = new ArrayList<String>();
+    expectedResultCompareByName.add("Joe Hills");
+    expectedResultCompareByName.add("Joy Appiah");
+
+    expectedResultCompareByLevel.add("Joe Hills");
+    expectedResultCompareByLevel.add("Joy Appiah");
+    expectedResultCompareByLevel.add("Joe Hills");
+    expectedResultCompareByLevel.add("Joy Appiah");
+
+    Register register = new Register(studentTestList);
+    List<String> result_name = register.sort(new StudentNameComparator());
+    List<String> result_level = register.sort(new StudentLevelComparator());
+
+//    Assert.assertEquals(expectedResultCompareByName.size()==result_name.size());
+//    Assert.assertArrayEquals(expectedResultCompareByName,result_name);
+//    Assert.assertArrayEquals(expectedResultCompareByLevel,result_level);
 }
 
 
