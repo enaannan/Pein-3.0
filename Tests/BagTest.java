@@ -18,5 +18,6 @@ public class BagTest {
     Student student = new Student(1,"Kwesi China", Level.FOUR_HUNDRED,grades);
 
     bag.addToBag(student);
+
     }
 }
